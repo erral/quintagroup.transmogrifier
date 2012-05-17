@@ -166,7 +166,12 @@ class XSLTSection(object):
         # parse document
         doc = libxml2.parseDoc(xml)
         # parse stylesheet
-        styledoc = libxml2.parseDoc(xslt)
+        if isinstance(xslt, StringIO):
+            styledoc = libxml2.parseDoc(xslt.read())
+        elif isinstance(xslt, str) or isinstance(xslt, unicode):
+            styledoc = libxml2.parseDoc(xslt)
+        else:
+            raise
         # make style object
         style = libxslt.parseStylesheetDoc(styledoc)
         # apply style to document
