@@ -6,6 +6,7 @@ from Acquisition import aq_base
 from Products.CMFCore import utils
 from Products.CMFDefault import DiscussionItem
 from Products.CMFDefault.exceptions import DiscussionNotAllowed
+from Products.CMFPlone.utils import safe_unicode
 
 from collective.transmogrifier.interfaces import ISection, ISectionBlueprint
 from collective.transmogrifier.utils import defaultMatcher
@@ -182,7 +183,7 @@ class CommentsImporterSection(object):
         else:
             item.in_reply_to = in_reply_to
 
-        item.addCreator(props['Creator'])
+        item.addCreator(safe_unicode(props['Creator']).encode('utf-8'))
         item.setFormat('text/plain')
         item.setMetadata(props)
         item._edit(text=props['Text'])
