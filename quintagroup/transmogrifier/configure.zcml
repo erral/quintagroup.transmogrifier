@@ -138,13 +138,13 @@
     <adapter factory=".portlets.PortletAssignmentExportImportHandler" />
 
     <transmogrifier:registerConfig
-        name="export"
+        name="quintagroup.transmogrifier-export"
         title="Export pipeline configuration"
         description="This is a Plone content export pipeline configuration."
         configuration="export.cfg"
         />
 
-    <!-- We registry this export step in zcml and it will override Plone's standard 
+    <!-- We registry this export step in zcml and it will override Plone's standard
          Content export step. Than we need to go in ZMI to Manage tab of portal_setup
          tool and delete old step. (I also detected that steps registered in zcml
          overriede those registered in profile without deleting them on manage tab)
@@ -157,7 +157,7 @@
         />
 
     <transmogrifier:registerConfig
-        name="import"
+        name="quintagroup.transmogrifier-import"
         title="Import pipeline configuration"
         description="This is a Plone content import pipeline configuration."
         configuration="import.cfg"
