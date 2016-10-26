@@ -20,8 +20,8 @@ from Products.GenericSetup.interfaces import IFilesystemImporter
 from quintagroup.transmogrifier.writer import WriterSection
 from quintagroup.transmogrifier.configview import ANNOKEY
 
-EXPORT_CONFIG = 'export'
-IMPORT_CONFIG = 'import'
+EXPORT_CONFIG = 'quintagroup.transmogrifier-export'
+IMPORT_CONFIG = 'quintagroup.transmogrifier-import'
 
 CONFIGFILE = None
 def registerPersistentConfig(site, type_):
